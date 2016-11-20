@@ -1,0 +1,21 @@
+compile			= "err_correct.c"
+
+
+
+bandwidth		= 56Kbps,
+
+messagerate             = 100ms,
+propagationdelay        = 200ms,
+
+
+host perth {
+    x=100 y=50
+    winx=0, winy=50
+    link to sydney {
+    }
+}
+
+host sydney {
+    east east east east of perth
+    winx=550, winy=50
+}
