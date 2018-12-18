@@ -5,6 +5,7 @@
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
+ Ton trong quyen tac gia:Luan
  ============================================================================
  */
 
@@ -74,8 +75,6 @@ void hammingEncode(int dataSize, int blockSize, int* data) {
 		if (isPowerOfTwo(i)) {
 			setTo(toLH(i, blockSize), &newdata,
 					hammingParity(blockSize, &newdata, i));
-		} else {
-
 		}
 	}
 	*data = newdata;
@@ -157,9 +156,14 @@ char * int2bin(int i, int length) {
 	str[bits] = 0;
 
 // type punning because signed shift is implementation-defined
+
 	unsigned u = *(unsigned *) &i;
-	for (; bits--; u >>= 1)
-		str[bits] = u & 1 ? '1' : '0';
+
+	for (; bits--; u >>= 1) //u = u tai vi tri bit ben phai cua u; (Tuong tu u+=1)
+				//Bit chay tu dau mang den cuoi mang thi con tro cung di theo
+
+		str[bits] = u & 1 ? '1' : '0'; //Neu dia chi cua con tro tai vi tri u 
+	//nay la 1 thi se tra ve la 1 neu khong se tra ve 0; Day la toan tu AND
 
 	return str;
 }
